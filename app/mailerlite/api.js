@@ -4,8 +4,11 @@ const url = require("url")
 /* Externals */
 const request = require("request")
 
+/* Locals */
+const constants = require("./constants")
+
 /* Constants */
-const api_endpoint = 'https://api.mailerlite.com/api/v2/'
+const api_endpoint = constants.API_ENDPOINT
 
 class API {
     

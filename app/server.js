@@ -19,7 +19,7 @@ const app = express()
 
 app.disable('x-powered-by')
 
-app.use(bodyParser.urlencoded())
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 // Sends service info
@@ -38,12 +38,16 @@ app.use((req, res) => {
     res.send('500 / Server error', 500)
 })
 
+const PORT = process.env.PORT || 3000
+const IP = process.env.IP || '0.0.0.0'
+
 const start = () => {
-    app.listen(process.env.PORT || 3000, process.env.IP || '0.0.0.0', (err) => {
+    app.listen(PORT, IP, (err) => {
         if (err) {
-            return console.error (err.message); process.exit(1);
+            return console.error (err.message);
         }
-        console.log('Server started at ' + process.env.IP + ':' + process.env.PORT)
+        
+        console.log('Server started at ' + IP + ':' + PORT)
     })
 }
 
