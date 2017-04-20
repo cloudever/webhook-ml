@@ -1,0 +1,16 @@
+{
+  "name": "webhook-ml",
+  "version": "1.0.0",
+  "description": "Webhook gateway to MailerLite API (v2)",
+  "main": "index.js",
+  "author": "cloudever",
+  "license": "MIT",
+  "dependencies": {
+    "awaiting": "^2.2.0",
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.1",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.2",
+    "request": "^2.81.0"
+  }
+}
