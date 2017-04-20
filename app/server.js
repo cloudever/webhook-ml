@@ -39,7 +39,7 @@ app.use((req, res) => {
 })
 
 const start = () => {
-    app.listen(process.env.PORT, process.env.IP, (err) => {
+    app.listen(process.env.PORT || 3000, process.env.IP || '0.0.0.0', (err) => {
         if (err) {
             return console.error (err.message); process.exit(1);
         }
