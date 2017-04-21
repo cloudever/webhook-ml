@@ -24,18 +24,18 @@ app.use(bodyParser.json())
 
 // Sends service info
 app.get('/', (req, res) => {
-    res.send(`${pkg.name}-svc ${pkg.version} ok`, 200)
+    res.send(`${pkg.name}-svc ${pkg.version} ok`)
 })
 
 // Routes entrypoint for webhook
 app.use('/webhook', router({ api: ml }));
 
 app.use((req, res) => {
-    res.send('404 / Not found', 404)
+    res.status(404).send('404 / Not found')
 })
 
 app.use((req, res) => {
-    res.send('500 / Server error', 500)
+    res.status(500).send('500 / Server error')
 })
 
 const PORT = process.env.PORT || 3000
