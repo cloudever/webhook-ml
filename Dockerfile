@@ -11,6 +11,12 @@ ENV PORT $PORT
 ARG PORTEXT=3000
 ENV PORTEXT $PORTEXT
 
+ARG WORKDIR=/usr/src/app
+ENV WORKDIR $WORKDIR
+
+ARG MAILERLITE_APIKEY
+ENV MAILERLITE_APIKEY $MAILERLITE_APIKEY
+
 ARG ECHO="printf \n\n\033[1;30m[Dockerfile]\t\033[1;32m%s\033[0m\n\n\n"
 
 EXPOSE $PORTEXT:$PORT
@@ -19,5 +25,5 @@ RUN \
   $ECHO "Install PM2 package global" \
   ; yarn global add pm2
 
-RUN cd $WORKDIR
-ENTRYPOINT ["pm2-docker", "start", "pm2.json"]
+WORKDIR $WORKDIR
+CMD ["pm2-docker", "start", "pm2.json"]

@@ -1,0 +1,14 @@
+version: '2'
+services:
+  webhook-ml:
+    image: elistreit/webhook-ml
+    env_file:
+      - .env
+    fip: $IPEXT
+    size: "s1"
+    ports:
+      - $PORTEXT:$PORT
+    expose:
+      - $PORT
+    environment:
+      - MAILERLITE_APIKEY=$MAILERLITE_APIKEY
